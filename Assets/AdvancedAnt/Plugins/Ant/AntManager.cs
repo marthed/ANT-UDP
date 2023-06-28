@@ -39,7 +39,7 @@ public class AntManager : MonoBehaviour {
         }
     }
    
-    readonly byte[] NETWORK_KEY = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }; // COPY THE CORRECT NETWORK KEY HERE
+    readonly byte[] NETWORK_KEY = { 0xB9, 0xA5, 0x21, 0xFB, 0xBD, 0x72, 0xC3, 0x45 }; // COPY THE CORRECT NETWORK KEY HERE
     /*
     * To obtain the network key:
     * register on https://www.thisisant.com/register/

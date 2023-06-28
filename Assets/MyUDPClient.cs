@@ -35,6 +35,7 @@ public class MyUDPClient : Singleton<MyUDPClient>
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("Send UDP Message");
             SendUDPMessage("Hello, UDP server!"); // Replace with your desired message
         }
     }
