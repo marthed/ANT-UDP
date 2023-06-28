@@ -138,6 +138,9 @@ public class SpeedDisplay : MonoBehaviour {
 
         byte deviceType = (data[12]); // extended info Device Type byte
 
+        Debug.Log("Received Background scan data from deviceType: " + deviceType);
+
+
         switch (deviceType) {
 
             case AntplusDeviceType.BikeSpeed: {
@@ -177,6 +180,7 @@ public class SpeedDisplay : MonoBehaviour {
         byte channelID = AntManager.Instance.GetFreeChannelID();
         deviceChannel = AntManager.Instance.OpenChannel(ANT_ReferenceLibrary.ChannelType.BASE_Slave_Receive_0x00, channelID, (ushort)device.deviceNumber,device.deviceType, device.transType, (byte)device.radiofreq, (ushort)device.period, false);
         connected = true;
+        Debug.Log("Connected to device");
         deviceChannel.onReceiveData += Data;
         deviceChannel.onChannelResponse += ChannelResponse;
 
@@ -204,15 +208,17 @@ public class SpeedDisplay : MonoBehaviour {
             speed = 0;
         }
 
+        InfoBoard.Instance.SetInforBoardAntText("an-" + speed);
+        MyUDPClient.Instance.SendUDPMessage("an-" + speed);
 
         prev_measTime_speed = measTime_speed;
         prev_revCount_speed = revCount_speed;
 
         //DISTANCE
-        if (revCountZero == 0)
-            revCountZero = revCount_speed;
+        // if (revCountZero == 0)
+        //     revCountZero = revCount_speed;
 
-        distance = wheelCircumference * (revCount_speed - revCountZero);
+        // distance = wheelCircumference * (revCount_speed - revCountZero);
 
 
     }
@@ -220,8 +226,6 @@ public class SpeedDisplay : MonoBehaviour {
 
 
     void ChannelResponse(ANT_Response response) {
-
-       
     }
 
 }

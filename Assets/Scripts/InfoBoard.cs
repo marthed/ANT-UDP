@@ -12,9 +12,6 @@ public class InfoBoard : Singleton<InfoBoard>
     public TMP_Text _text;
 
     public TMP_Text _antText;
-    void Start()
-    {
-    }
 
 
     public void SetInfoBoardText(string text) {

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Net.Sockets;
 using System.Net;
+using Singleton;
 
-public class MyUDPClient : MonoBehaviour
+public class MyUDPClient : Singleton<MyUDPClient>
 {
   private UdpClient udpClient;
   private IPEndPoint serverEndPoint;
@@ -23,7 +24,7 @@ public class MyUDPClient : MonoBehaviour
         udpClient.Close();
     }
 
-    private void SendUDPMessage(string message)
+    public void SendUDPMessage(string message)
     {
         byte[] data = System.Text.Encoding.UTF8.GetBytes(message);
         udpClient.Send(data, data.Length, serverEndPoint);
@@ -34,7 +35,7 @@ public class MyUDPClient : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SendMessage("Hello, UDP server!"); // Replace with your desired message
+            SendUDPMessage("Hello, UDP server!"); // Replace with your desired message
         }
     }
 }
