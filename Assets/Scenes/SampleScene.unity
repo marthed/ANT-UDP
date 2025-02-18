@@ -613,8 +613,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1768437931}
   - component: {fileID: 1768437932}
+  - component: {fileID: 1768437933}
   m_Layer: 0
-  m_Name: UDPClient
+  m_Name: UDP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,6 +648,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d9b8c86d537478fb153bfcca2451e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oculusIP: 192.168.54.119
+--- !u!114 &1768437933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768437930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da91fb796e9be456db7af0ebc3b3f073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oculusIpAdress: 192.168.231.218
+  port: 8080
+  hideLogs: 0
+  OnIpReceived:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1768437932}
+        m_TargetAssemblyTypeName: MyUDPClient, Assembly-CSharp
+        m_MethodName: SetOculusIp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1999631950
 GameObject:
   m_ObjectHideFlags: 0
